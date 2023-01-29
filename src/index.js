@@ -36,7 +36,6 @@ const clock = new THREE.Clock()
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
 
-renderer.setClearColor(0xffffff, 0)
 var ob
 const animate = () => {
   const elapsed = clock.getElapsedTime()
