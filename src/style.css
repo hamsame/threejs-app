@@ -7,6 +7,7 @@
   font-family: "Roboto", sans-serif;
 }
 
-body {
-  background-color: whie;
+canvas {
+  width: 80%;
+  height: 60%;
 }
