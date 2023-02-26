@@ -27,12 +27,11 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(width, height)
 
 const light = new THREE.DirectionalLight("#fff", 10)
-const lighs = new THREE.DirectionalLight("#fff", 10)
+const light2 = new THREE.DirectionalLight("#fff", 10)
 // x,y,z
-light.position.set(1, 1, 10)
-lighs.position.set(1, 1, -10)
-scene.add(light)
-scene.add(lighs)
+light.position.set(1, -1, 10)
+light2.position.set(1, -1, -10)
+scene.add(light, light2)
 
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
@@ -63,6 +62,7 @@ loader.load(model, (glb) => {
   ob = glb.scene
   scene.add(ob)
   ob.rotation.y = 3.15
+  ob.position.y = -1
   const posFolder = gui.addFolder("Object Positioning")
   posFolder.add(ob.position, "x", -3, 3).name("horizontal position")
   posFolder.add(ob.position, "y", -3, 3).name("vertical position")
@@ -74,6 +74,6 @@ loader.load(model, (glb) => {
   transformations.add(ob.scale, "x", 0, 5, 0.5).onChange(scaleObj).name("Scale")
   transformations.add(params, "rotate90deg").name("Rotate Right by 90 deg")
   gui.add(ob, "visible").name("show")
-  camera.position.set(0, 0, 10)
+  camera.position.set(0, 0, 9)
   animate()
 })
